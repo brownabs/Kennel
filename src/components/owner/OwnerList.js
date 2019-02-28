@@ -20,4 +20,4 @@ class OwnerList extends Component {
 }
 
 
-export default OwnerList
+export default OwnerList 
