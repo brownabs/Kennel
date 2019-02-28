@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Owner.css'
+
 
 
 class OwnerList extends Component {
@@ -11,6 +11,10 @@ class OwnerList extends Component {
                     <div key={owner.id}>
                         {owner.name}<br />
                         {owner.phone}
+                        <button onClick={() => {
+                                this.props.dischargeOwner(owner.id)
+                            }}
+                        >Couldn't Pay</button>
                     </div>
                 )
             }

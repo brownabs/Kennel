@@ -12,22 +12,24 @@ If you add a new Link element in your application with a new URL, then you must 
 class NavBar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
-                <ul className="nav nav-pills">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/locations">Locations</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/animals">Animals</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/employees">Employees</Link>
+            <div className="navContainer">
+                <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
+                    <ul className="nav nav-pills">
                         <li className="nav-item">
-                        <Link className="nav-link" to="/owners">Owners</Link>
-                    </li>
-                    </li>
-                </ul>
-            </nav>
+                            <Link className="nav-link" to="/locations">Locations</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/animals">Animals</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/employees">Employees</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/owners">Owners</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         )
     }
 }

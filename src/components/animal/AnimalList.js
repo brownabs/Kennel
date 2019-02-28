@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Animal from './Animal'
-import "./AnimalList.css"
+
 
 
 export default class AnimalList extends Component {
@@ -11,6 +11,7 @@ export default class AnimalList extends Component {
                 this.props.animals.map(animal =>
                     <div key={`animal-${animal.id}`}>
                         <Animal animal={animal}
+                        dischargeAnimal={this.props.dischargeAnimal}
                             owners={
                                 this.props.animalOwners
                                     .filter(ao => ao.animalId === animal.id)

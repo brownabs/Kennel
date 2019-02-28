@@ -1,40 +1,80 @@
 {
-    "employees" : [
-    { "id": 1, "name": "Jessica Younker" },
-    { "id": 2, "name": "Jordan Nelson" },
-    { "id": 3, "name": "Zoe LeBlanc" },
-    { "id": 4, "name": "Blaise Roberts" }
-],
-
-"locations" : [
-    { "id": 1, "name": "Nashville North", "address": "500 Circle Way" },
-    { "id": 2, "name": "Nashville South", "address": "10101 Binary Court" }
-],
-
-"animals" : [
-    { "id": 1, "name": "Doodles" },
-    { "id": 2, "name": "Jack" },
-    { "id": 3, "name": "Angus" },
-    { "id": 4, "name": "Henley" },
-    { "id": 5, "name": "Derkins" },
-    { "id": 6, "name": "Checkers" }
-],
-
-"owners" : [
-    { "id": 1, "name": "Ryan Tanay", "phoneNumber": "800-234-5066" },
-    { "id": 2, "name": "Emma Beaton", "phoneNumber": "615-274-7066" },
-    { "id": 3, "name": "Dani Adkins", "phoneNumber": "900-564-5066" },
-    { "id": 4, "name": "Adam Oswalt", "phoneNumber": "312-970-9876" },
-    { "id": 5, "name": "Fletcher Bangs", "phoneNumber": "615-345-2746" },
-    { "id": 6, "name": "Angela Lee", "phoneNumber": "800-908-1166" }
-],
-
-"animalOwners" : [
-    { "id": 1, "animalId": 1, "ownerId": 5 },
-    { "id": 2, "animalId": 2, "ownerId": 3 },
-    { "id": 3, "animalId": 3, "ownerId": 1 },
-    { "id": 4, "animalId": 4, "ownerId": 2 },
-    { "id": 5, "animalId": 5, "ownerId": 4 },
-    { "id": 6, "animalId": 5, "ownerId": 6 }
-]
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jessica Younker"
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson"
+    },
+    {
+      "id": 3,
+      "name": "Zoe LeBlanc"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North",
+      "address": "500 Circle Way"
+    },
+    {
+      "id": 2,
+      "name": "Nashville South",
+      "address": "10101 Binary Court"
+    }
+  ],
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles"
+    },
+    {
+      "id": 2,
+      "name": "Jack"
+    },
+    {
+      "id": 3,
+      "name": "Angus"
+    },
+    {
+      "id": 4,
+      "name": "Henley"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Ryan Tanay",
+      "phoneNumber": "800-234-5066"
+    },
+    {
+      "id": 2,
+      "name": "Emma Beaton",
+      "phoneNumber": "615-274-7066"
+    },
+    {
+      "id": 3,
+      "name": "Dani Adkins",
+      "phoneNumber": "900-564-5066"
+    }
+  ],
+  "animalOwners": [
+    {
+      "id": 2,
+      "animalId": 2,
+      "ownerId": 3
+    },
+    {
+      "id": 3,
+      "animalId": 3,
+      "ownerId": 1
+    },
+    {
+      "id": 4,
+      "animalId": 4,
+      "ownerId": 2
+    }
+  ]
 }

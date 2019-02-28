@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Animal.css'
+
 
 export default class Animal extends Component {
     render() {
@@ -10,8 +10,10 @@ export default class Animal extends Component {
                 </div>
                 <div>Owned By: {
                     this.props.owners.join(", ")
-                }
-                </div>
+                }</div>
+                <button
+                            onClick={() => this.props.dischargeAnimal(this.props.animal.id)}
+                            className="card-link">Delete</button>
             </section>
         )
     }
