@@ -8,7 +8,7 @@ class OwnerList extends Component {
             <section className="owners">
             {
                 this.props.owners.map(owner =>
-                    <div className="owner" key={owner.id}>
+                    <div key={owner.id}>
                         {owner.name}<br />
                         {owner.phone}
                     </div>
@@ -20,4 +20,4 @@ class OwnerList extends Component {
 }
 
 
-export default OwnerList 
+export default OwnerList
