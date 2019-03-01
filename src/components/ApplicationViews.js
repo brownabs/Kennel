@@ -4,6 +4,11 @@ import AnimalList from './animal/AnimalList'
 import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import OwnerList from './owner/OwnerList'
+import AnimalManager from "../modules/AnimalManager"
+import OwnerManager from '../modules/OwnerManager';
+import EmployeeManager from '../modules/EmployeeManager';
+import LocationManager from '../modules/LocationManager';
+import AnimalOwnerManager from '../modules/AnimalOwnerManager';
 
 // /*Navbar.js: This is a Presentation Component. Directly expresses HTML.
 // ApplicationViews.js: This is a Controller Component. Its only responsibility 
@@ -64,23 +69,22 @@ export default class ApplicationViews extends Component {
 
     componentDidMount() {
         const newState = {}
+        
+        AnimalManager.getAllAnimals()
+        .then(animals => newState.animals = animals)
 
-        fetch("http://localhost:5002/animals")
-            .then(r => r.json())
-            .then(animals => newState.animals = animals)
-            .then(() => fetch("http://localhost:5002/employees")
-            .then(r => r.json()))
-            .then(employees => newState.employees = employees)
-            .then(() => fetch("http://localhost:5002/owners")
-            .then(r => r.json()))
-            .then(owners => newState.owners = owners)
-            .then(() => fetch("http://localhost:5002/locations")
-            .then(r => r.json()))
-            .then(locations => newState.locations = locations)
-            .then(() => fetch("http://localhost:5002/animalOwners")
-            .then(r => r.json()))
-            .then(animalOwners => newState.animalOwners = animalOwners)
-            .then(() => this.setState(newState))
+        OwnerManager.getAllOwners()
+        .then(owners => newState.owners = owners)
+        
+        EmployeeManager.getAllEmployees()
+        .then(employees => newState.employees = employees)
+
+        LocationManager.getAllLocations()
+        .then(locations => newState.locations = locations)
+ 
+        AnimalOwnerManager.getAllAnimalsOwners()
+        .then(animalOwners => newState.animalOwners = animalOwners)
+        .then(() => this.setState(newState))
     }
 
         /*  exact is needed on the first route, otherwise it will also match the other two routes, 

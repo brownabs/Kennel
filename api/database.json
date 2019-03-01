@@ -3,14 +3,6 @@
     {
       "id": 1,
       "name": "Jessica Younker"
-    },
-    {
-      "id": 2,
-      "name": "Jordan Nelson"
-    },
-    {
-      "id": 3,
-      "name": "Zoe LeBlanc"
     }
   ],
   "locations": [
@@ -28,19 +20,15 @@
   "animals": [
     {
       "id": 1,
-      "name": "Doodles"
+      "name": "Doodles🐩"
     },
     {
       "id": 2,
-      "name": "Jack"
+      "name": "Jack🐕"
     },
     {
       "id": 3,
-      "name": "Angus"
-    },
-    {
-      "id": 4,
-      "name": "Henley"
+      "name": "Angus🐶"
     }
   ],
   "owners": [
@@ -53,28 +41,23 @@
       "id": 2,
       "name": "Emma Beaton",
       "phoneNumber": "615-274-7066"
-    },
-    {
-      "id": 3,
-      "name": "Dani Adkins",
-      "phoneNumber": "900-564-5066"
     }
   ],
   "animalOwners": [
     {
+      "id": 1,
+      "animalId": 1,
+      "ownerId": 1
+    },
+    {
       "id": 2,
       "animalId": 2,
-      "ownerId": 3
+      "ownerId": 2
     },
     {
       "id": 3,
       "animalId": 3,
       "ownerId": 1
-    },
-    {
-      "id": 4,
-      "animalId": 4,
-      "ownerId": 2
     }
   ]
 }
