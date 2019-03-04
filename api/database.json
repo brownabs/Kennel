@@ -24,15 +24,18 @@
   "animals": [
     {
       "id": 1,
-      "name": "Doodles🐩"
+      "name": "Doodles", 
+      "breed": "Poodle"
     },
     {
       "id": 2,
-      "name": "Jack🐕"
+      "name": "Jack", 
+      "breed": "Lab"
     },
     {
       "id": 3,
-      "name": "Angus🐶"
+      "name": "Angus", 
+      "breed": "Bull Dog"
     }
   ],
   "owners": [
