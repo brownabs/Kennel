@@ -10,7 +10,7 @@ import EmployeeManager from '../modules/EmployeeManager';
 import LocationManager from '../modules/LocationManager';
 import AnimalOwnerManager from '../modules/AnimalOwnerManager';
 
-// /*Navbar.js: This is a Presentation Component. Directly expresses HTML.
+
 // ApplicationViews.js: This is a Controller Component. Its only responsibility 
 // to to control the behavior of the system. It maps URLs to components.
 // In the ApplicationViews component, you will define how your application will 
@@ -91,7 +91,7 @@ export default class ApplicationViews extends Component {
         and the LocationList will be the only component rendered, no matter what the URL is
         The <Link/> and the <Route/> JSX elements are complementary to each other. 
         If you add a new Link element in your application with a new URL, then you must create a matching Route element.*/
-        
+        //state includes any data that the component needs
     render() {
         return (
             <React.Fragment>

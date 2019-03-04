@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-
+//<h3> is not HTML just a JSX expression
 export default class LocationList extends Component {
     render() {
         return (

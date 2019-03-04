@@ -3,6 +3,10 @@
     {
       "id": 1,
       "name": "Jessica Younker"
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson"
     }
   ],
   "locations": [
@@ -36,23 +40,18 @@
       "id": 1,
       "name": "Ryan Tanay",
       "phoneNumber": "800-234-5066"
-    },
-    {
-      "id": 2,
-      "name": "Emma Beaton",
-      "phoneNumber": "615-274-7066"
     }
   ],
   "animalOwners": [
     {
       "id": 1,
-      "animalId": 1,
+      "animalId": 3,
       "ownerId": 1
     },
     {
       "id": 2,
-      "animalId": 2,
-      "ownerId": 2
+      "animalId": 3,
+      "ownerId": 1
     },
     {
       "id": 3,
