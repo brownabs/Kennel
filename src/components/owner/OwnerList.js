@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 
 
 
@@ -15,6 +16,7 @@ class OwnerList extends Component {
                                 this.props.dischargeOwner(owner.id)
                             }}
                         >Couldn't Pay</button>
+                           <Link className="nav-link" to={`/owners/${owner.id}`}>Details</Link>
                     </div>
                 )
             }

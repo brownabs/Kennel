@@ -13,7 +13,7 @@ export default class Animal extends Component {
         return (
             <section className="animal">
 
-                <div key={this.props.animal.id} className="card">
+                <div key={this.props.animal.id} className="animal-card">
                     <div className="card-body">
 
                     <h4 className="card-title">{this.props.animal.name}</h4>
