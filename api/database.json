@@ -2,11 +2,25 @@
   "employees": [
     {
       "id": 1,
-      "name": "Jessica Younker"
+      "name": "Bob Brown"
     },
     {
       "id": 2,
-      "name": "Jordan Nelson"
+      "name": "Billy Bob"
+    },
+    {
+      "id": 3,
+      "name": "Jane Doe"
+    },
+    {
+      "id": 4,
+      "name": "Jessie Lee",
+      "locationId": 1
+    },
+    {
+      "name": "Billy Bob Thorton",
+      "locationId": 2,
+      "id": 5
     }
   ],
   "locations": [
@@ -24,18 +38,24 @@
   "animals": [
     {
       "id": 1,
-      "name": "Doodles", 
+      "name": "Doodles",
       "breed": "Poodle"
     },
     {
       "id": 2,
-      "name": "Jack", 
+      "name": "Jack",
       "breed": "Lab"
     },
     {
       "id": 3,
-      "name": "Angus", 
+      "name": "Angus",
       "breed": "Bull Dog"
+    },
+    {
+      "name": "Rupie",
+      "breed": "Collie",
+      "employeeId": 1,
+      "id": 4
     }
   ],
   "owners": [
@@ -43,7 +63,7 @@
       "id": 1,
       "name": "Abbey Brown",
       "phoneNumber": "111-111-1111"
-    }, 
+    },
     {
       "id": 2,
       "name": "Katerina Freeman",
@@ -69,17 +89,22 @@
     {
       "id": 1,
       "animalId": 3,
-      "ownerId": 1
+      "ownerId": 2
     },
     {
       "id": 2,
-      "animalId": 3,
-      "ownerId": 1
+      "animalId": 1,
+      "ownerId": 3
     },
     {
       "id": 3,
-      "animalId": 3,
+      "animalId": 2,
       "ownerId": 1
+    },
+    {
+      "id": 4,
+      "animalId": 3,
+      "ownerId": 4
     }
   ]
 }

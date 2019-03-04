@@ -1,17 +1,19 @@
 import { Route } from 'react-router-dom'
-import React, { Component } from "react"
+import React, { Component } from 'react'
 import AnimalList from './animal/AnimalList'
 import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import OwnerList from './owner/OwnerList'
-import AnimalManager from "../modules/AnimalManager"
-import OwnerManager from '../modules/OwnerManager';
-import EmployeeManager from '../modules/EmployeeManager';
-import LocationManager from '../modules/LocationManager';
-import AnimalOwnerManager from '../modules/AnimalOwnerManager';
+import AnimalManager from '../modules/AnimalManager'
+import OwnerManager from '../modules/OwnerManager'
+import EmployeeManager from '../modules/EmployeeManager'
+import LocationManager from '../modules/LocationManager'
+import AnimalOwnerManager from '../modules/AnimalOwnerManager'
 import AnimalDetail from './animal/AnimalDetail'
 import EmployeeDetail from './employee/EmployeeDetails'
 import OwnerDetail from './owner/OwnerDetails'
+import AnimalForm from './animal/AnimalForm'
+import EmployeeForm from './employee/EmployeeForm'
 
 
 
@@ -67,6 +69,20 @@ export default class ApplicationViews extends Component {
             .then(animals => this.setState({ animals: animals }))
     }
 
+    addAnimal = animal =>
+    AnimalManager.addNewAnimal(animal)
+    .then(() => AnimalManager.getAllAnimals())
+    .then(animals =>
+      this.setState({animals: animals})
+    )
+
+    addEmployee = employee => 
+    EmployeeManager.addNewEmployee(employee)
+    .then(() => EmployeeManager.getAllEmployees())
+    .then(employees =>
+      this.setState({employees: employees})
+    )
+
     componentDidUpdate() {
         console.log("componentDidUpdate -- ApplicationViews")
     }
@@ -107,19 +123,30 @@ export default class ApplicationViews extends Component {
                     
                 }} />
                 <Route exact path="/animals" render={(props) => {
-                    return <AnimalList animals={this.state.animals}
+                    return <AnimalList {...props} animals={this.state.animals}
                         owners={this.state.owners}
                         animalOwners={this.state.animalOwners}
                         dischargeAnimal={this.dischargeAnimal}
                         loadAnimals={this.getAllAnimalsAgain} />
                 }} />
+                <Route path="/animals/new" render={(props) => {
+                    return <AnimalForm {...props}
+                       addAnimal={this.addAnimal}
+                       employees={this.state.employees} />
+}} />
                 <Route path="/animals/:animalId(\d+)" render={(props) => {
                     return <AnimalDetail {...props} dischargeAnimal={this.dischargeAnimal} animals={this.state.animals} />
                 }} />
                 <Route exact path="/employees" render={(props) => {
-                    return <EmployeeList employees={this.state.employees}
+                    return <EmployeeList {...props} employees={this.state.employees}
                         fireEmployee={this.fireEmployee} />
                 }} />
+                     <Route path="/employees/new" render={(props) => {
+                    return <EmployeeForm {...props}
+                       addEmployee={this.addEmployee}
+                       employees={this.state.employees}
+                       locations={this.state.locations} />
+                     }} />     
                  <Route path="/employees/:employeeId(\d+)" render={(props) => {
                     return <EmployeeDetail {...props} fireEmployee={this.fireEmployee} employees={this.state.employees} />
                 }} />

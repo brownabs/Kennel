@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
-
+import dog from './dog.png'
 
 /*
     PURPOSE: Animal.js component holds the virtual DOM element of animal, animal name and type and using .join()
@@ -15,7 +15,7 @@ export default class Animal extends Component {
 
                 <div key={this.props.animal.id} className="animal-card">
                     <div className="card-body">
-
+                    <img src={dog} className="icon--dog" alt="dog"/>
                     <h4 className="card-title">{this.props.animal.name}</h4>
                     <h6 className="card-title">{this.props.animal.breed}</h6>
                 
