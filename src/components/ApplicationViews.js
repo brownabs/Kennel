@@ -1,19 +1,26 @@
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from 'react'
+
 import AnimalList from './animal/AnimalList'
 import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import OwnerList from './owner/OwnerList'
+
 import AnimalManager from '../modules/AnimalManager'
 import OwnerManager from '../modules/OwnerManager'
 import EmployeeManager from '../modules/EmployeeManager'
 import LocationManager from '../modules/LocationManager'
 import AnimalOwnerManager from '../modules/AnimalOwnerManager'
+
 import AnimalDetail from './animal/AnimalDetail'
 import EmployeeDetail from './employee/EmployeeDetails'
 import OwnerDetail from './owner/OwnerDetails'
+
 import AnimalForm from './animal/AnimalForm'
 import EmployeeForm from './employee/EmployeeForm'
+
+import Login from './authentication/Login'
+
 
 
 
@@ -70,18 +77,21 @@ export default class ApplicationViews extends Component {
     }
 
     addAnimal = animal =>
-    AnimalManager.addNewAnimal(animal)
-    .then(() => AnimalManager.getAllAnimals())
-    .then(animals =>
-      this.setState({animals: animals})
-    )
+        AnimalManager.addNewAnimal(animal)
+            .then(() => AnimalManager.getAllAnimals())
+            .then(animals =>
+                this.setState({ animals: animals })
+            )
 
-    addEmployee = employee => 
-    EmployeeManager.addNewEmployee(employee)
-    .then(() => EmployeeManager.getAllEmployees())
-    .then(employees =>
-      this.setState({employees: employees})
-    )
+    addEmployee = employee =>
+        EmployeeManager.addNewEmployee(employee)
+            .then(() => EmployeeManager.getAllEmployees())
+            .then(employees =>
+                this.setState({ employees: employees })
+            )
+
+    // Check if credentials are in local storage
+    isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
     componentDidUpdate() {
         console.log("componentDidUpdate -- ApplicationViews")
@@ -117,12 +127,16 @@ export default class ApplicationViews extends Component {
     //  animal is to be viewed by looking in the URL. The animal's primary key will be the last part of the URL path.
     render() {
         return (
+
             <React.Fragment>
+                <Route path="/login" component={Login} />
+
                 <Route exact path="/locations" render={(props) => {
                     return <LocationList locations={this.state.locations} />
-                    
+
                 }} />
                 <Route exact path="/animals" render={(props) => {
+                    
                     return <AnimalList {...props} animals={this.state.animals}
                         owners={this.state.owners}
                         animalOwners={this.state.animalOwners}
@@ -131,30 +145,40 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route path="/animals/new" render={(props) => {
                     return <AnimalForm {...props}
-                       addAnimal={this.addAnimal}
-                       employees={this.state.employees} />
-}} />
+                        addAnimal={this.addAnimal}
+                        employees={this.state.employees} />
+                }} />
                 <Route path="/animals/:animalId(\d+)" render={(props) => {
                     return <AnimalDetail {...props} dischargeAnimal={this.dischargeAnimal} animals={this.state.animals} />
                 }} />
-                <Route exact path="/employees" render={(props) => {
+                {/* <Route exact path="/employees" render={(props) => {
                     return <EmployeeList {...props} employees={this.state.employees}
                         fireEmployee={this.fireEmployee} />
-                }} />
-                     <Route path="/employees/new" render={(props) => {
+                }} /> */}
+                <Route path="/employees/new" render={(props) => {
                     return <EmployeeForm {...props}
-                       addEmployee={this.addEmployee}
-                       employees={this.state.employees}
-                       locations={this.state.locations} />
-                     }} />     
-                 <Route path="/employees/:employeeId(\d+)" render={(props) => {
+                        addEmployee={this.addEmployee}
+                        employees={this.state.employees}
+                        locations={this.state.locations} />
+                }} />
+                <Route exact path="/employees" render={props => {
+                    if (this.isAuthenticated()) {
+                        return <EmployeeList deleteEmployee={this.deleteEmployee}
+                            employees={this.state.employees} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route path="/employees/:employeeId(\d+)" render={(props) => {
                     return <EmployeeDetail {...props} fireEmployee={this.fireEmployee} employees={this.state.employees} />
                 }} />
                 <Route exact path="/owners" render={(props) => {
+                 
                     return <OwnerList owners={this.state.owners}
-                        dischargeOwner={this.dischargeOwner}/>
+                        dischargeOwner={this.dischargeOwner} />
+                   
                 }} />
-                 <Route path="/owners/:ownerId(\d+)" render={(props) => {
+                <Route path="/owners/:ownerId(\d+)" render={(props) => {
                     return <OwnerDetail {...props} dischargeOwner={this.dischargeOwner} owners={this.state.owners} />
                 }} />
             </React.Fragment>

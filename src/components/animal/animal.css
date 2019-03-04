@@ -1,0 +1,42 @@
+.animal-page-title {
+    display: flex;
+    justify-content: center;
+}
+.animalButton {
+    display: flex;
+    justify-content: center;
+}
+.animal-card-delete {
+    border-radius: 7px
+}
+
+.animal-detail-button {
+    display: flex;
+    justify-content: center;
+}
+.animals {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.animal-card-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px
+
+}
+
+.animal-card-title {
+    display: flex;
+    justify-content: center;
+}
+
+.ownerList {
+    display: flex;
+    justify-content: center;
+    font-size: 0.75em;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import dog from './dog.png'
+import './animal.css'
 
 /*
     PURPOSE: Animal.js component holds the virtual DOM element of animal, animal name and type and using .join()
@@ -14,17 +15,18 @@ export default class Animal extends Component {
             <section className="animal">
 
                 <div key={this.props.animal.id} className="animal-card">
-                    <div className="card-body">
+                    <div className="animal-card-body">
                     <img src={dog} className="icon--dog" alt="dog"/>
-                    <h4 className="card-title">{this.props.animal.name}</h4>
-                    <h6 className="card-title">{this.props.animal.breed}</h6>
+                    <h4 className="animal-card-title">{this.props.animal.name}</h4>
+                    <h6 className="animal-card-title">{this.props.animal.breed}</h6>
                 
                     <div className="ownerList">Owned By: {this.props.owners.join(", ")}</div>
                 <button
                     onClick={() => this.props.dischargeAnimal(this.props.animal.id)}
-                    className="card-link">Delete</button>
+                    className="animal-card-delete">Delete</button>
                     </div>
-                        <Link className="nav-link" to={`/animals/${this.props.animal.id}`}>Details</Link>
+                        <Link className="animal-nav-link" to={`/animals/${this.props.animal.id}`}>
+                        <h4 className="animal-detail-button">Details</h4></Link>
                 </div>
             </section >
         )

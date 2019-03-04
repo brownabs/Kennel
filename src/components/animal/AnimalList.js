@@ -18,6 +18,7 @@ export default class AnimalList extends Component {
     render() {
         return (
             <React.Fragment>
+            <h1 className="animal-page-title">Animals</h1>
             <div className="animalButton">
             <button type="button"
                     className="btn btn-success"
@@ -25,7 +26,7 @@ export default class AnimalList extends Component {
                         this.props.history.push("/animals/new")}
                     }> Admit Animal
             </button>
-            </div>
+            </div> 
             <section className="animals">
             {
                 this.props.animals.map(animal =>

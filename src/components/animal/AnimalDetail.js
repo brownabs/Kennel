@@ -18,7 +18,7 @@ export default class AnimalDetail extends Component {
             <section className="animal">
                 <div key={animal.id} className="card">
                     <div className="card-body">
-                    <h4 className="card-title">{ animal.name } { animal.breed }</h4> 
+                    <h4 className="animal-card-title">{ animal.name } { animal.breed }</h4> 
 
                         <button
                             onClick={() => this.props.dischargeAnimal(animal.id)
