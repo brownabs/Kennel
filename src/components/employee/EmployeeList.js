@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import Animal from '../animal/Animal';
+import './employee.css'
+
 
 
 export default class EmployeeList extends Component {
@@ -16,14 +19,21 @@ export default class EmployeeList extends Component {
             </div>
             <section className="employees">
             {this.props.employees.map(employee =>
-                    <div key={employee.id}>
+                    <div className="employeeList" key={employee.id}>
                         {employee.name}
-                        <button onClick={() => {
+                        <button className="fireButton" 
+                                onClick={() => {
                                 this.props.fireEmployee(employee.id)
                             }}
                         >Fire</button>
-                        <Link className="nav-link" to={`/employees/${employee.id}`}>Details</Link>
-
+                         <Link className="nav-link" to={`/employees/${employee.id}`}>Details</Link>
+                               <div className="animals--caretaker">
+                            {
+                                this.props.animals
+                                    .filter(anml => anml.employeeId === employee.id)
+                                    .map(anml => <Animal key={anml.id} animal={anml} {...this.props} />)
+                            }
+                            </div>
                     </div>
                 )
             }

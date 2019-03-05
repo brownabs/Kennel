@@ -39,23 +39,26 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle"
+      "breed": "Poodle", 
+      "employeeId": 5
     },
     {
       "id": 2,
       "name": "Jack",
-      "breed": "Lab"
-    },
+      "breed": "Lab",
+      "employeeId": 3
+    }, 
     {
       "id": 3,
-      "name": "Angus",
-      "breed": "Bull Dog"
+      "name": "Rupert",
+      "breed": "BullDog",
+      "employeeId": 1
     },
     {
-      "name": "Rupie",
+      "id": 4,
+      "name": "Poop",
       "breed": "Collie",
-      "employeeId": 1,
-      "id": 4
+      "employeeId": 4
     }
   ],
   "owners": [
@@ -87,11 +90,6 @@
   ],
   "animalOwners": [
     {
-      "id": 1,
-      "animalId": 3,
-      "ownerId": 2
-    },
-    {
       "id": 2,
       "animalId": 1,
       "ownerId": 3
@@ -100,11 +98,6 @@
       "id": 3,
       "animalId": 2,
       "ownerId": 1
-    },
-    {
-      "id": 4,
-      "animalId": 3,
-      "ownerId": 4
     }
   ]
 }

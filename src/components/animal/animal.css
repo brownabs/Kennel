@@ -19,15 +19,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
 
 .animal-card-body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 20px
-
+    align-items: center;
+    padding: 20px;
 }
 
 .animal-card-title {
@@ -39,4 +38,9 @@
     display: flex;
     justify-content: center;
     font-size: 0.75em;
+}
+
+.icon--dog {
+    height: 300px;
+    width: 300px;
 }

@@ -21,12 +21,13 @@ export default class Animal extends Component {
                     <h6 className="animal-card-title">{this.props.animal.breed}</h6>
                 
                     <div className="ownerList">Owned By: {this.props.owners.join(", ")}</div>
-                <button
+                    <Link className="animal-nav-link" to={`/animals/${this.props.animal.id}`}>
+                        <h4 className="animal-detail-button">Details</h4></Link>
+                    <button
                     onClick={() => this.props.dischargeAnimal(this.props.animal.id)}
                     className="animal-card-delete">Delete</button>
-                    </div>
-                        <Link className="animal-nav-link" to={`/animals/${this.props.animal.id}`}>
-                        <h4 className="animal-detail-button">Details</h4></Link>
+                </div>
+            
                 </div>
             </section >
         )

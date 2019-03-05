@@ -31,7 +31,7 @@ export default class AnimalList extends Component {
             {
                 this.props.animals.map(animal =>
                     <div key={`animal-${animal.id}`}>
-                        <Animal animal={animal} //animal and owner are single objects that is used by the Animal component
+                        <Animal animal={animal} {...this.props}//animal and owner are single objects that is used by the Animal component
                         dischargeAnimal={this.props.dischargeAnimal}
                             owners={ 
                                 this.props.animalOwners
