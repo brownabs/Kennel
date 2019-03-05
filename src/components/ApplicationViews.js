@@ -18,6 +18,7 @@ import OwnerDetail from './owner/OwnerDetails'
 
 import AnimalForm from './animal/AnimalForm'
 import EmployeeForm from './employee/EmployeeForm'
+import AnimalEditForm from './animal/AnimalEditForm'
 
 import Login from './authentication/Login'
 
@@ -83,6 +84,16 @@ export default class ApplicationViews extends Component {
                 this.setState({ animals: animals })
             )
 
+    updateAnimal = (editedAnimal) => {
+        return AnimalManager.put(editedAnimal)
+            .then(() => AnimalManager.getAllAnimals())
+            .then(animals => {
+                this.setState({
+                    animals: animals
+                })
+            });
+    };
+
     addEmployee = employee =>
         EmployeeManager.addNewEmployee(employee)
             .then(() => EmployeeManager.getAllEmployees())
@@ -136,12 +147,13 @@ export default class ApplicationViews extends Component {
 
                 }} />
                 <Route exact path="/animals" render={(props) => {
-                    
+
                     return <AnimalList {...props} animals={this.state.animals}
                         owners={this.state.owners}
                         animalOwners={this.state.animalOwners}
                         dischargeAnimal={this.dischargeAnimal}
-                        loadAnimals={this.getAllAnimalsAgain} />
+                        loadAnimals={this.getAllAnimalsAgain}
+                    />
                 }} />
                 <Route path="/animals/new" render={(props) => {
                     return <AnimalForm {...props}
@@ -149,12 +161,14 @@ export default class ApplicationViews extends Component {
                         employees={this.state.employees} />
                 }} />
                 <Route path="/animals/:animalId(\d+)" render={(props) => {
-                    return <AnimalDetail {...props} dischargeAnimal={this.dischargeAnimal} animals={this.state.animals} />
+                    return <AnimalDetail {...props} dischargeAnimal={this.dischargeAnimal} animals={this.state.animals} animalOwners={this.state.animalOwners} />
                 }} />
-                {/* <Route exact path="/employees" render={(props) => {
-                    return <EmployeeList {...props} employees={this.state.employees}
-                        fireEmployee={this.fireEmployee} />
-                }} /> */}
+                <Route
+                    path="/animals/:animalId(\d+)/edit" render={props => {
+                        return <AnimalEditForm {...props} employees={this.state.employees} updateAnimal={this.updateAnimal} />
+                    }}
+                />
+
                 <Route path="/employees/new" render={(props) => {
                     return <EmployeeForm {...props}
                         addEmployee={this.addEmployee}
@@ -163,10 +177,11 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/employees" render={props => {
                     if (this.isAuthenticated()) {
-                        return <EmployeeList deleteEmployee={this.deleteEmployee} 
-                                             animals={this.state.animals}
-                                             owners={this.state.owners}
-                                             employees={this.state.employees} />
+                        return <EmployeeList {...props} deleteEmployee={this.deleteEmployee}
+                            animals={this.state.animals}
+                            owners={this.state.owners}
+                            animalOwners={this.state.animalOwners}
+                            employees={this.state.employees} />
                     } else {
                         return <Redirect to="/login" />
                     }
@@ -175,10 +190,10 @@ export default class ApplicationViews extends Component {
                     return <EmployeeDetail {...props} fireEmployee={this.fireEmployee} employees={this.state.employees} />
                 }} />
                 <Route exact path="/owners" render={(props) => {
-                 
+
                     return <OwnerList owners={this.state.owners}
                         dischargeOwner={this.dischargeOwner} />
-                   
+
                 }} />
                 <Route path="/owners/:ownerId(\d+)" render={(props) => {
                     return <OwnerDetail {...props} dischargeOwner={this.dischargeOwner} owners={this.state.owners} />

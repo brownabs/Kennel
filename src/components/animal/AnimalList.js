@@ -33,12 +33,13 @@ export default class AnimalList extends Component {
                     <div key={`animal-${animal.id}`}>
                         <Animal animal={animal} {...this.props}//animal and owner are single objects that is used by the Animal component
                         dischargeAnimal={this.props.dischargeAnimal}
-                            owners={ 
-                                this.props.animalOwners
-                                    .filter(ao => ao.animalId === animal.id)
-                                    .map(ownershipArray => this.props.owners //ownershipArray is the new array made by filter method, how does that interact with this.props.owners
-                                    .find(owner => owner.id === ownershipArray.ownerId).name)
-                                } />
+                        {...this.props}
+                        owners={this.props.owners}
+                        {...this.props}
+                        animalOwners={this.props.animalOwners}
+                        {...this.props}
+                        history={this.props.history}
+                        />
                     </div>
                 )
             }

@@ -44,7 +44,7 @@ export default class AnimalForm extends Component {
       <React.Fragment>
         <form className="animalForm">
           <div className="form-group">
-            <label htmlFor="animalName">Animal name</label>
+            <label htmlFor="name">Animal name</label>
             <input
               type="text"
               required

@@ -39,15 +39,15 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle", 
+      "breed": "Poodle",
       "employeeId": 5
     },
     {
       "id": 2,
-      "name": "Jack",
-      "breed": "Lab",
-      "employeeId": 3
-    }, 
+      "name": "Tilly",
+      "breed": "Shih tzu",
+      "employeeId": 1
+    },
     {
       "id": 3,
       "name": "Rupert",
@@ -90,13 +90,23 @@
   ],
   "animalOwners": [
     {
-      "id": 2,
+      "id": 1,
       "animalId": 1,
       "ownerId": 3
     },
     {
-      "id": 3,
+      "id": 2,
       "animalId": 2,
+      "ownerId": 2
+    },
+    {
+      "id": 3,
+      "animalId": 3,
+      "ownerId": 5
+    },
+    {
+      "id": 4,
+      "animalId": 4,
       "ownerId": 1
     }
   ]
